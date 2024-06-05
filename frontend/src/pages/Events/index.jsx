@@ -1,21 +1,30 @@
 import { getEvents } from "../../services";
-import EventsList from "../../components/EventsList";
-import { json, useRouteLoaderData } from "react-router-dom";
+import EventsList from "../../components/EventList/EventsList";
+import { Await, defer, json, useRouteLoaderData } from "react-router-dom";
+import React from "react";
+import Loading from "../../components/Loading";
 
 const Events = () => {
   const { data } = useRouteLoaderData("events");
   console.log(data);
 
-  return <div>{data ? <EventsList events={data} /> : <p>No events</p>}</div>;
+  return (
+    <React.Suspense fallback={<Loading />}>
+      <Await
+        resolve={data}
+        errorElement={<div>Could not load reviews 😬</div>}
+        children={(resolvedReviews) => <EventsList events={resolvedReviews} />}
+      />
+    </React.Suspense>
+  );
 };
 
 export default Events;
 
 // Loader
 export const loader = async ({ request, params }) => {
-  const res = await getEvents();
-
-  return json({
+  const res = getEvents();
+  return defer({
     status: 200,
     data: res,
   });

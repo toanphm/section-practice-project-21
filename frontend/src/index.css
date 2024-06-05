@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
-  
+  margin: 0;
+  padding: 0;
 }
 
 :root {
@@ -9,9 +10,17 @@
   line-height: 24px;
   font-weight: 400;
 
+  --header-height: 64px;
+
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+
+  --bg-color: white;
+  --fore-color: #333;
+
+  /* Header CSS */
+  --header-bg-color: white;
+  --header-color: #f6ad1b;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -29,6 +38,8 @@
   --color-gray-800: #31302e;
   --color-gray-900: #1f1d1b;
 
+  --color-contrast-primary: whitesmoke;
+
   --color-primary-100: #fcf3e1;
   --color-primary-200: #fceccd;
   --color-primary-300: #fae1af;
@@ -38,6 +49,16 @@
   --color-primary-700: #fbc14d;
   --color-primary-800: #fab833;
   --color-primary-900: #f6ad1b;
+}
+
+[data-theme="dark"] {
+  --bg-color: #242424;
+  --fore-color: whitesmoke;
+
+  --color-contrast-primary: black;
+/* Header CSS */
+  --header-bg-color: var(--color-gray-700);
+  --header-color:#f6ad1b;
 }
 
 *{
@@ -57,3 +78,4 @@ ul {
 a .active{
   text-decoration: underline;
 }
+

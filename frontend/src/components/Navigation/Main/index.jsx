@@ -3,7 +3,7 @@ import classes from "./MainNavigation.module.css";
 
 function MainNavigation() {
   function handleStatus({ isActive, isPending }) {
-    return isPending ? "pending" : isActive ? "active" : "";
+    return isPending ? classes["pending"] : isActive ? classes["active"] : "";
   }
   return (
     <header className={classes.header}>

@@ -1,14 +1,14 @@
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Layout from "./layouts/layouts";
+import Layout from "./layouts/root/layouts";
 import Home from "./pages/home";
 import Events, { loader as eventLoader } from "./pages/Events";
 import DetailEvent from "./pages/Events/detailEvent";
 import NewEvent from "./pages/Events/newEvent";
 import EditEvent from "./pages/Events/editEvent";
-import EventLayout from "./layouts/EventLayout";
+import EventLayout from "./layouts/event/EventLayout";
 import ErrorBoundary from "./pages/errors/ErrorBoundary";
-import { getEvents } from "./services";
+import { createContext, useState } from "react";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            id:"events",
+            id: "events",
             element: <Events />,
             loader: eventLoader,
           },
@@ -49,8 +49,16 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
+export const ThemeContext = createContext();
+
 function App() {
-  return <RouterProvider router={router} />;
+  const [theme, setTheme] = useState("dark");
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <RouterProvider router={router} />
+    </ThemeContext.Provider>
+  );
 }
 
 export default App;
