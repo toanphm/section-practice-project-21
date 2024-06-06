@@ -1,6 +1,6 @@
 import { getEvents } from "../../services";
 import EventsList from "../../components/EventList/EventsList";
-import { Await, defer, json, useRouteLoaderData } from "react-router-dom";
+import { Await, defer, useRouteLoaderData } from "react-router-dom";
 import React from "react";
 import Loading from "../../components/Loading";
 
@@ -13,7 +13,7 @@ const Events = () => {
       <Await
         resolve={data}
         errorElement={<div>Could not load reviews 😬</div>}
-        children={(resolvedReviews) => <EventsList events={resolvedReviews} />}
+        children={(resolvedEvents) => <EventsList events={resolvedEvents} />}
       />
     </React.Suspense>
   );

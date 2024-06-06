@@ -3,9 +3,12 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./layouts/root/layouts";
 import Home from "./pages/home";
 import Events, { loader as eventLoader } from "./pages/Events";
-import DetailEvent from "./pages/Events/detailEvent";
-import NewEvent from "./pages/Events/newEvent";
-import EditEvent from "./pages/Events/editEvent";
+import DetailEvent, {
+  loader as eventDetailLoader,
+  action as eventDetailAction,
+} from "./pages/Events/detailEvent";
+import NewEvent, { action as newEventAction } from "./pages/Events/newEvent";
+import EditEvent, { action as editEventAction } from "./pages/Events/editEvent";
 import EventLayout from "./layouts/event/EventLayout";
 import ErrorBoundary from "./pages/errors/ErrorBoundary";
 import { createContext, useState } from "react";
@@ -15,7 +18,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     errorElement: <ErrorBoundary />,
-
     children: [
       {
         index: true,
@@ -33,16 +35,26 @@ const router = createBrowserRouter([
             loader: eventLoader,
           },
           {
+            id: "event-id",
             path: ":id",
-            element: <DetailEvent />,
+            loader: eventDetailLoader,
+            action: eventDetailAction,
+            children: [
+              {
+                index: true,
+                element: <DetailEvent />,
+              },
+              {
+                path: "edit",
+                element: <EditEvent />,
+                action: editEventAction,
+              },
+            ],
           },
           {
             path: "new",
             element: <NewEvent />,
-          },
-          {
-            path: ":id/edit",
-            element: <EditEvent />,
+            action: newEventAction,
           },
         ],
       },

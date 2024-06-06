@@ -14,7 +14,7 @@ router.get("/", async (req, res, next) => {
     const events = await getAll();
     setTimeout(() => {
       res.json({ events: events });
-    }, 2000);
+    }, 1500);
   } catch (error) {
     next(error);
   }
@@ -23,7 +23,7 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const event = await get(req.params.id);
-    res.json({ event: event });
+    setTimeout(() => res.json({ event: event }), 1000);
   } catch (error) {
     next(error);
   }
@@ -59,7 +59,11 @@ router.post("/", async (req, res, next) => {
 
   try {
     await add(data);
-    res.status(201).json({ message: "Event saved.", event: data });
+
+    setTimeout(
+      () => res.status(201).json({ message: "Event saved.", event: data }),
+      1000
+    );
   } catch (error) {
     next(error);
   }
@@ -95,7 +99,10 @@ router.patch("/:id", async (req, res, next) => {
 
   try {
     await replace(req.params.id, data);
-    res.json({ message: "Event updated.", event: data });
+    setTimeout(
+      () => res.json({ message: "Event updated.", event: data }),
+      1000
+    );
   } catch (error) {
     next(error);
   }
@@ -104,7 +111,7 @@ router.patch("/:id", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
   try {
     await remove(req.params.id);
-    res.json({ message: "Event deleted." });
+    setTimeout(() => res.json({ message: "Event deleted." }), 1000);
   } catch (error) {
     next(error);
   }

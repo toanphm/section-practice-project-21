@@ -1,20 +1,32 @@
-import { Link } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useNavigation,
+} from "react-router-dom";
 import classes from "./EventsNavigation.module.css";
 
 function EventsNavigation() {
+  const navigate = useNavigate();
   return (
-    <header className={classes.header}>
-      <nav>
-        <ul className={classes.list}>
-          <li>
-            <Link to="/events">All Events</Link>
-          </li>
-          <li>
-            <Link to="/events/new">New Event</Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <nav className={classes.navigation}>
+      {/* <button
+        className={classes.btn__back}
+        onClick={() => {
+          navigate("..");
+        }}
+      >
+        Back
+      </button> */}
+      <ul className={classes.list}>
+        <li>
+          <Link to="/events">All Events</Link>
+        </li>
+        <li>
+          <Link to="/events/new">New Event</Link>
+        </li>
+      </ul>
+    </nav>
   );
 }
 

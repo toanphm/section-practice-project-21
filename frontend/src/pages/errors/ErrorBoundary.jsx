@@ -2,7 +2,7 @@ import { Link, useRouteError } from "react-router-dom";
 import classes from "./errorBoundary.module.css";
 
 const ErrorBoundary = () => {
-  const { status, statusText, data, ...error } = useRouteError();
+  const { status, statusText, data } = useRouteError();
   const res = useRouteError();
 
   console.log(res);
@@ -28,7 +28,7 @@ const ErrorBoundary = () => {
         <h1>{status}</h1>
         <h2>{statusText ?? "no title"}</h2>
         <p>{data ?? "something is wrong, try again!"}</p>
-        <Link to="/">Back to Home</Link>
+        <Link to="..">Back to Home</Link>
       </div>
     </section>
   );

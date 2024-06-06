@@ -1,11 +1,1 @@
-{
-  "events": [
-    {
-      "id": "e1",
-      "title": "A dummy event",
-      "date": "2023-02-22",
-      "image": "https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg",
-      "description": "Join this amazing event and connect with fellow developers."
-    }
-  ]
-}
+{"events":[{"title":"test 2","image":"https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg","date":"2024-06-13","description":"asdasd","id":"a30132a3-8080-4c87-a240-9ea0b24d32c7"},{"title":"The event updated","image":"https://c4.wallpaperflare.com/wallpaper/448/174/357/neon-4k-hd-best-for-desktop-wallpaper-preview.jpg","date":"2024-06-10","description":"asd","id":"500ef72e-a8ce-4d67-8592-c480cfd2a84a"},{"id":"e1","title":"A dummy event","date":"2023-02-22","image":"https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg","description":"Join this amazing event and connect with fellow developers."}]}

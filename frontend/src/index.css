@@ -79,3 +79,17 @@ a .active{
   text-decoration: underline;
 }
 
+div{
+  transition: 0.4s;
+}
+
+
+button{
+  border-radius: 4px;
+  outline: none;
+  border: none;
+}
+
+button:hover{
+  opacity: 0.8;
+}
