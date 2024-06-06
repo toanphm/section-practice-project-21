@@ -1,13 +1,9 @@
 import {
   Link,
-  useLocation,
-  useNavigate,
-  useNavigation,
 } from "react-router-dom";
 import classes from "./EventsNavigation.module.css";
 
 function EventsNavigation() {
-  const navigate = useNavigate();
   return (
     <nav className={classes.navigation}>
       {/* <button

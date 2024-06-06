@@ -12,6 +12,7 @@ import EditEvent, { action as editEventAction } from "./pages/Events/editEvent";
 import EventLayout from "./layouts/event/EventLayout";
 import ErrorBoundary from "./pages/errors/ErrorBoundary";
 import { createContext, useState } from "react";
+import { action as newsletterSignUpAction } from "./components/Newsletter";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
             action: newEventAction,
           },
         ],
+      },
+      {
+        path: "NewsletterSignup",
+        action: newsletterSignUpAction,
       },
     ],
   },

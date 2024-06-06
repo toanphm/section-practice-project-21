@@ -1,4 +1,5 @@
 import MainNavigation from "../Navigation/Main";
+import NewsletterSignup from "../Newsletter";
 import ToggleMode from "../ToggleMode";
 import classes from "./styles.module.css";
 
@@ -8,6 +9,7 @@ const Header = () => {
       <div className={classes.header}>
         <MainNavigation />
         <ToggleMode />
+        <NewsletterSignup />
       </div>
     </header>
   );
